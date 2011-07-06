@@ -17,14 +17,14 @@ do
 done
 
 echo "Installing .emacs"
-cp ./emacs ~/.emacs
+cp ./dots/emacs ~/.emacs
 
 echo "Installing .vimrc"
-cp ./vimrc ~/.vimrc
+cp ./dots/vimrc ~/.vimrc
 
-grep=`grep "source ~/.dotfiles/bashrc" ~/.bashrc`
+grep=`grep "source ~/.dotfiles/dots/bashrc" ~/.bashrc`
 if [ "x$grep" == "x" ]; then
-  echo "source ~/.dotfiles/bashrc" >> ~/.bashrc
+  echo "source ~/.dotfiles/dots/bashrc" >> ~/.bashrc
 fi
 
 source ~/.bashrc
