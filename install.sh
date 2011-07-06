@@ -1,20 +1,28 @@
 #!/bin/bash
+#
+
+install_directory() {
+  local from_dir=$1
+  local to_dir=$2
+
+  if [ ! -d $to_dir ]; then
+    mkdir -p $to_dir
+  fi
+
+  for f in `ls $from_dir`
+  do
+    echo "Installing $to_dir/$f"
+    cp $from_dir/$f $to_dir/
+  done
+}
 
 if [ ! -d ~/.vim ]; then
   mkdir -p ~/.vim/plugins
 fi
 
-for f in `ls ./vim/plugins`
-do
-  echo "Installing $f"
-  cp ./vim/plugins/$f ~/.vim/plugins
-done
-
-for f in `ls ./vim/syntax`
-do
-  echo "Installing $f"
-  cp ./vim/syntax/$f ~/.vim/syntax
-done
+install_directory ./vim/plugins ~/.vim/plugins
+install_directory ./vim/syntax ~/.vim/syntax
+install_directory ./scripts ~/scripts
 
 echo "Installing .emacs"
 cp ./dots/emacs ~/.emacs

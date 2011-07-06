@@ -1,0 +1,6 @@
+#!/bin/bash
+
+key=`cat ~/.ssh/id_rsa.pub`
+for host in $*; do
+  ssh $host "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod -R 600 ~/.ssh/* && echo '$key' >> ~/.ssh/authorized_keys" 
+done
