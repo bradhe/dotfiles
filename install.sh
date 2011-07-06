@@ -20,7 +20,7 @@ if [ ! -d ~/.vim ]; then
   mkdir -p ~/.vim/plugins
 fi
 
-install_directory ./vim/plugins ~/.vim/plugins
+install_directory ./vim/plugin ~/.vim/plugin
 install_directory ./vim/syntax ~/.vim/syntax
 install_directory ./scripts ~/scripts
 
