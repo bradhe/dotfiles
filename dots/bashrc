@@ -10,7 +10,10 @@ alias c=script/console
 alias sc='vim ~/.bashrc && source ~/.bashrc'
 alias e=emacs
 alias b=script/build
+alias gb=git-branch
 alias rp="rake && git push"
+alias bp="script/build && git push"
+alias r="rake"
 
 # put this in your .bashrc or .profile
 function parse_git_dirty {

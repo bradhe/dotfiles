@@ -1,1 +1,1 @@
-git log | cat | head -n 1 | awk '{print $2}' | tr -d '\n'
+git branch | awk '{print $2}' | tr -d '\n'
