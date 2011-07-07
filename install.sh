@@ -47,5 +47,5 @@ if [ "x$py" == "x" ]; then
   exit 1
 fi
 
-python ~/scripts/hop/setup.py install
-python ~/scripts/hop/setup.py install_data
+(cd ~/scripts/hop && python setup.py install)
+(cd ~/scripts/hop && python setup.py install_data)
