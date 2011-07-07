@@ -12,9 +12,12 @@ install_directory() {
   for f in `ls $from_dir`
   do
     echo "Installing $to_dir/$f"
-    cp $from_dir/$f $to_dir/
+    cp -R $from_dir/$f $to_dir/
   done
 }
+
+# Get the latest submodules.
+git submodule update --init
 
 if [ ! -d ~/.vim ]; then
   mkdir -p ~/.vim/plugins
@@ -36,3 +39,13 @@ if [ "x$grep" == "x" ]; then
 fi
 
 source ~/.bashrc
+
+# Install hop
+py=`which python`
+if [ "x$py" == "x" ]; then
+  echo "ERROR: Python is not installed."
+  exit 1
+fi
+
+python ~/scripts/hop/setup.py install
+python ~/scripts/hop/setup.py install_data

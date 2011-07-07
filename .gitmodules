@@ -1,0 +1,3 @@
+[submodule "scripts/hop"]
+	path = scripts/hop
+	url = https://github.com/Greplin/hop.git
