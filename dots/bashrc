@@ -14,6 +14,7 @@ alias gb=git-branch
 alias rp="rake && git push"
 alias bp="script/build && git push"
 alias r="rake"
+alias v="v"
 
 # put this in your .bashrc or .profile
 function parse_git_dirty {
