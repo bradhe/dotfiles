@@ -71,7 +71,7 @@ function! RunSpec(args)
   if exists("b:rails_root") && filereadable(b:rails_root . "/script/spec")
     let spec = b:rails_root . "/script/spec"
   else
-    let spec = "rspec"
+    let spec = "bin/rspec"
 
   end
   let cmd = ":! " . spec . " % -cfn " . a:args
@@ -116,4 +116,4 @@ map !c :!ctags -R .
 
 " Setup git stuff
 set laststatus=2
-set statusline=%{GitBranch()}
+set statusline=%F\ %{GitBranch()}
