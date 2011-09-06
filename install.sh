@@ -25,6 +25,7 @@ fi
 
 install_directory ./vim/plugin ~/.vim/plugin
 install_directory ./vim/syntax ~/.vim/syntax
+install_directory ./vim/autoload ~/.vim/autoload
 install_directory ./scripts ~/scripts
 
 echo "Installing .emacs"
