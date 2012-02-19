@@ -36,11 +36,19 @@ install_directory ./vim/syntax ~/.vim/syntax
 install_directory ./vim/autoload ~/.vim/autoload
 install_directory ./scripts ~/scripts
 
+#
+# Install all the emacs modes.
+#
 mkdir -p ~/.emacs.d/modes
 
 for f in `ls emacs/rspec-mode/*.el`
 do
-  install_file $f ~/.emacs.d/modes/
+    install_file $f ~/.emacs.d/modes/
+done
+
+for f in `ls emacs/ruby-mode/*.el`
+do
+    install_file $f ~/.emacs.d/modes/
 done
 
 echo "Installing .emacs"
