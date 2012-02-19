@@ -1,6 +1,3 @@
-[submodule "scripts/hop"]
-	path = scripts/hop
-	url = https://github.com/Greplin/hop.git
 [submodule "emacs/rspec-mode"]
 	path = emacs/rspec-mode
 	url = https://github.com/pezra/rspec-mode.git

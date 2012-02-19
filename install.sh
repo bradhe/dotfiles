@@ -16,6 +16,14 @@ install_directory() {
   done
 }
 
+install_file() {
+  local from_file=$1
+  local to_file=$2
+
+  echo "Installing file $to_dir/$f"
+  cp $from_file $to_file
+}
+
 # Get the latest submodules.
 git submodule update --init
 
@@ -26,6 +34,7 @@ fi
 install_directory ./vim/plugin ~/.vim/plugin
 install_directory ./vim/syntax ~/.vim/syntax
 install_directory ./vim/autoload ~/.vim/autoload
+install_directory ./emacs/rspec-mode ~/.vim/autoload
 install_directory ./scripts ~/scripts
 
 echo "Installing .emacs"
@@ -40,13 +49,3 @@ if [ "x$grep" == "x" ]; then
 fi
 
 source ~/.bashrc
-
-# Install hop
-py=`which python`
-if [ "x$py" == "x" ]; then
-  echo "ERROR: Python is not installed."
-  exit 1
-fi
-
-(cd ~/scripts/hop && python setup.py install)
-(cd ~/scripts/hop && python setup.py install_data)
