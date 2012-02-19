@@ -34,8 +34,14 @@ fi
 install_directory ./vim/plugin ~/.vim/plugin
 install_directory ./vim/syntax ~/.vim/syntax
 install_directory ./vim/autoload ~/.vim/autoload
-install_directory ./emacs/rspec-mode ~/.vim/autoload
 install_directory ./scripts ~/scripts
+
+mkdir -p ~/.emacs.d/modes
+
+for f in `ls emacs/rspec-mode/*.el`
+do
+  install_file $f ~/.emacs.d/modes/
+done
 
 echo "Installing .emacs"
 cp ./dots/emacs ~/.emacs
