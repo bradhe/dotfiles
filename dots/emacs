@@ -1,2 +1,3 @@
-(defun make-backupfile-name (file) (concat "/tmp" (file-name-nondirectory file) "~"))
 (require 'rspec-mode')
+(require 'ruby-mode')
+(defun make-backupfile-name (file) (concat "/tmp" (file-name-nondirectory file) "~"))

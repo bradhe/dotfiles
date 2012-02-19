@@ -1,3 +1,6 @@
 [submodule "emacs/rspec-mode"]
 	path = emacs/rspec-mode
 	url = https://github.com/pezra/rspec-mode.git
+[submodule "emacs/emacs-starter-kit"]
+	path = emacs/emacs-starter-kit
+	url = https://github.com/technomancy/emacs-starter-kit.git

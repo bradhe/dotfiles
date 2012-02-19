@@ -1,3 +1,4 @@
+
 #!/bin/bash
 #
 
@@ -47,6 +48,11 @@ do
 done
 
 for f in `ls emacs/ruby-mode/*.el`
+do
+    install_file $f ~/.emacs.d/modes/
+done
+
+for f in `ls emacs/emacs-starter-kit/*.el`
 do
     install_file $f ~/.emacs.d/modes/
 done
