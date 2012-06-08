@@ -1,3 +1,13 @@
-(require 'rspec-mode')
-(require 'ruby-mode')
+
+(add-to-list 'load-path "~/.emacs.d/")
+
+; Mode Files
+(load-file "~/.emacs.d/modes/ruby-mode.el")
+(load-file "~/.emacs.d/modes/rspec-mode.el")
+
 (defun make-backupfile-name (file) (concat "/tmp" (file-name-nondirectory file) "~"))
+
+(require 'ruby-mode)
+(require 'rspec-mode)
+
+(setq auto-mode-list (cons '(".rb$" . ruby-mode) auto-mode-alist))
