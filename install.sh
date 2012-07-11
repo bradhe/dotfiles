@@ -32,9 +32,7 @@ if [ ! -d ~/.vim ]; then
   mkdir -p ~/.vim/plugins
 fi
 
-install_directory ./vim/plugin ~/.vim/plugin
-install_directory ./vim/syntax ~/.vim/syntax
-install_directory ./vim/autoload ~/.vim/autoload
+install_directory ./vim ~/.vim
 install_directory ./scripts ~/scripts
 
 #

@@ -22,4 +22,11 @@ function parse_git_dirty {
 function parse_git_branch {
  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
-PS1='\u@\h:\w $(parse_git_branch) $ '
+
+PS1='\[\033[36m\]\u\[\033[37m\]@\[\033[34m\]\w \[\033[32m\]$(parse_git_branch) \[\033[0m\]$ '
+export CLICOLOR=1
+export LS_COLORS=exfxcxdxbxegedabagacad
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
+
