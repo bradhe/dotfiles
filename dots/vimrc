@@ -19,7 +19,7 @@ set list
 set lcs=tab:>>   "show tabs
 set lcs+=trail:. "show trailing spaces
 set pastetoggle=<F11>
-set mouse=a
+set mouse=v
 autocmd FileType c,cpp,java,php,html,erb,css,scss,sass,js,coffee,yml,sh,rake,feature,json,md,mdown,ru,sql,txt,xml,svg autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " highlight less files
