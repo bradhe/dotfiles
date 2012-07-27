@@ -5,6 +5,7 @@ set wildmenu
 set iskeyword+=?,!
 set backspace=2
 set background=dark
+filetype plugin plugin on
 filetype plugin indent on
 syntax on
 set ruler
@@ -124,3 +125,6 @@ map !c :!ctags -R .
 " Setup git stuff
 set laststatus=2
 set statusline=%F\ %{GitBranch()}
+
+"Map NERDTree to \p
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
