@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 set nocompatible
 set scrolloff=2
 set nowrap
@@ -5,9 +7,6 @@ set wildmenu
 set iskeyword+=?,!
 set backspace=2
 set background=dark
-filetype plugin plugin on
-filetype plugin indent on
-syntax on
 set ruler
 set incsearch
 set ignorecase
@@ -21,7 +20,12 @@ set lcs=tab:>>   "show tabs
 set lcs+=trail:. "show trailing spaces
 set pastetoggle=<F11>
 set mouse=v
+
 autocmd FileType c,cpp,java,php,html,erb,css,scss,sass,js,coffee,yml,sh,rake,feature,json,md,mdown,ru,sql,txt,xml,svg autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+filetype plugin plugin on
+filetype plugin indent on
+syntax on
 
 " highlight less files
 "
