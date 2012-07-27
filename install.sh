@@ -66,4 +66,4 @@ if [ "x$grep" == "x" ]; then
   echo "source ~/.dotfiles/dots/bashrc" >> ~/.bashrc
 fi
 
-source ~/.bashrc
+#source ~/.bashrc
