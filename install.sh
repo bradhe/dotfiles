@@ -1,10 +1,17 @@
-
 #!/bin/bash
 #
+
+current_user=`whoami`
 
 install_directory() {
   local from_dir=$1
   local to_dir=$2
+  local base_dir=$(dirname $to_dir)
+
+  if [ ! -w $base_dir ]; then
+    sudo mkdir -p $to_dir
+    sudo chown $current_user $base_dir
+  fi
 
   if [ ! -d $to_dir ]; then
     mkdir -p $to_dir
@@ -65,5 +72,12 @@ grep=`grep "source ~/.dotfiles/dots/bashrc" ~/.bashrc`
 if [ "x$grep" == "x" ]; then
   echo "source ~/.dotfiles/dots/bashrc" >> ~/.bashrc
 fi
+
+# Install Git Gui
+(cd git/gui/ && make)
+
+install_file git/gui/git-gui ~/scripts/
+#install_directory git/gui /usr/share/git-gui
+#chmod 755 ~/scripts/git-gui
 
 #source ~/.bashrc

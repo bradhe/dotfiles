@@ -124,7 +124,7 @@ map ;J :JSLintClear<CR>
 
 map !b :%s/\s\+$//g<CR>
 map !f :FufFile**/<CR>
-map !c :!ctags -R .
+map !c :!ctags .
 
 " Setup git stuff
 set laststatus=2
