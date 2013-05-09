@@ -96,8 +96,19 @@ function parse_git_branch {
  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
+# put this in your .bashrc or .profile
+function parse_git_dirty {
+ [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
+}
+function parse_git_branch {
+ git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+function parse_rvm_gemset {
+  echo "$Green[$Red$(basename $GEM_HOME)$Green]"
+}
 
-PS1='\[\033[0;95m\]\u\[\033[37m\]@\[\033[31m\]\w \[\033[1;32m\]$(parse_git_branch) \[\033[0m\]$ '
+export PS1="$Cyan\u$Green $Green($BPurple\w$Green) $(parse_git_branch) $(parse_rvm_gemset) $Cyan\$$Color_Off "
+#PS1='\[\033[0;95m\]\u\[\033[37m\]@\[\033[31m\]\w \[\033[1;32m\]$(parse_git_branch) \[\033[0m\]$ '
 export CLICOLOR=1
 export LS_COLORS=exfxcxdxbxegedabagacad
 
@@ -107,4 +118,21 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/scripts/ # Scripts too!
 
 # This is...probably wrong.
-export JAVA_HOME=/usr
+export JAVA_HOME=$(/usr/libexec/java_home)
+export GNUPGHOME=$HOME/.gnupg
+export JRUBY_OPTS="--1.9 -Xcext.enabled=true"
+
+export CC="/usr/bin/gcc-4.2"
+
+alias checkjs='find . -name '\''*.js'\'' -exec ~/scripts/checkForJsErrors.sh {} \;'
+
+export EC2_HOME=$HOME/Documents/ec2
+export PATH=$PATH:$EC2_HOME/bin
+
+# Stuff for PostegreSQL
+export PATH=$PATH:/opt/local/lib/postgresql92/bin/
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin/:/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="/Users/brad/.sm/bin:/Users/brad/.sm/pkg/active/bin:/opt/scala/bin:$PATH"
