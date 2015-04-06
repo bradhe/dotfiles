@@ -129,7 +129,9 @@ function parse_git_branch {
 }
 
 function parse_rvm_gemset {
-  echo "$IGreen[$Red$(basename $GEM_HOME)$IGreen]"
+  if [[ $GEM_HOME != "" ]]; then
+    echo "$IGreen[$Red$(basename $GEM_HOME)$IGreen]"
+  fi
 }
 
 function prompt_func() {
