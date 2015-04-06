@@ -62,16 +62,11 @@ do
     install_file $f ~/.emacs.d/modes/
 done
 
-echo "Installing .emacs"
-cp ./dots/emacs ~/.emacs
-
-echo "Installing .vimrc"
-cp ./dots/vimrc ~/.vimrc
-
-grep=`grep "source ~/.dotfiles/dots/bashrc" ~/.bashrc`
-if [ "x$grep" == "x" ]; then
-  echo "source ~/.dotfiles/dots/bashrc" >> ~/.bashrc
-fi
+for f in `ls ./dots`;
+do
+  echo "Installing .$f"
+  cp ./dots/$f $HOME/.$f
+done
 
 # Install Git Gui
 (cd git/gui/ && make)
@@ -80,4 +75,4 @@ install_file git/gui/git-gui ~/scripts/
 #install_directory git/gui /usr/share/git-gui
 #chmod 755 ~/scripts/git-gui
 
-#source ~/.bashrc
+source ~/.bashrc
