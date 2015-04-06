@@ -10,16 +10,17 @@ set background=dark
 set ruler
 set incsearch
 set ignorecase
-set et
-set sw=2
-set smarttab
 set number
 noremap Y y$
-set list
 set lcs=tab:>>   "show tabs
 set lcs+=trail:. "show trailing spaces
 set pastetoggle=<F11>
 set mouse=v
+
+" Shitty tab-v-space stuff
+set smarttab
+set expandtab
+set softtabstop=2 shiftwidth=2
 
 autocmd FileType c,cpp,java,php,html,erb,css,scss,sass,js,coffee,yml,sh,rake,feature,json,md,mdown,ru,sql,txt,xml,svg autocmd BufWritePre <buffer> :%s/\s\+$//e
 
@@ -39,11 +40,19 @@ if bufname("%") =~ ".ejs"
   set ft=html
 end
 
-if bufname("%") =~ ".go"
-  set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-  set list!
+if bufname("%") =~ ".go$"
+  set tabstop=2 softtabstop=8 shiftwidth=2 noexpandtab
+  set nolist
 end
 
+if bufname("%") =~ "Makefile"
+  set tabstop=2 softtabstop=8 shiftwidth=8 noexpandtab
+  set nolist
+end
+
+if bufname("%") =~ ".py"
+  set tabstop=2 softtabstop=8 shiftwidth=2 noexpandtab
+end
 
 noremap Q @q
 
@@ -88,10 +97,10 @@ function! RunSpec(args)
   if exists("b:rails_root") && filereadable(b:rails_root . "/script/spec")
     let spec = b:rails_root . "/script/spec"
   else
-    let spec = "bin/rspec"
+    let spec = "bundle exec rspec"
 
   end
-  let cmd = ":! " . spec . " % -cfn " . a:args
+  let cmd = ":! " . spec . " %" . a:args . ""
   execute cmd
 endfunction
 
@@ -122,19 +131,25 @@ function Bar(type, msg)
   echohl None
 endfunction
 
-map !s :call BDD("-l " . <C-r>=line('.')<CR>)
+map !s :call BDD(":" . <C-r>=line('.')<CR>)
 map !S :call BDD("")
 
-map ;j :JSLintLight<CR>
-map ;J :JSLintClear<CR>
+" \s to toggle spelling
+nmap <silent> <leader>s :set spell!<CR>
 
+" Clean up whitespace at the end of files.
 map !b :%s/\s\+$//g<CR>
-map !f :FufFile**/<CR>
-map !c :!ctags .
+map !c :!ctags -R .
 
-" Setup git stuff
-set laststatus=2
-set statusline=%F\ %{GitBranch()}
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
-"Map NERDTree to \p
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+set colorcolumn=81
+set noshowmode
+
+set encoding=utf-8
+set guifont=Consolas\ for\ Powerline:h9

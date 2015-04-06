@@ -17,9 +17,9 @@ cp $HOME/.gitignore_global dots/gitignore_global
 #
 # VIM and Emacs crap
 #
-cp -r $HOME/.vim vim
-cp -r $HOME/.emacs.d emacs
+cp -r $HOME/.vim/ vim
+cp -r $HOME/.emacs.d/ emacs
 
 #
 # Now we'll nuke .git directories, since we don't need 'em any more.
-find . -type d | grep .git$ | xargs -I {} rm -rf {}
+find . -type d | grep \.git$ | grep -v ./.git | grep -v ./git | xargs -I {} rm -rf {}

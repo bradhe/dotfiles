@@ -1,13 +1,24 @@
-
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+(add-to-list 'load-path "~/.emacs.d/evil")
 
 ; Mode Files
 (load-file "~/.emacs.d/modes/ruby-mode.el")
 (load-file "~/.emacs.d/modes/rspec-mode.el")
 
-(defun make-backupfile-name (file) (concat "/tmp" (file-name-nondirectory file) "~"))
-
 (require 'ruby-mode)
 (require 'rspec-mode)
+(require 'line-num)
+(require 'evil)
 
+; Other mode files
 (setq auto-mode-list (cons '(".rb$" . ruby-mode) auto-mode-alist))
+(setg default-tab-width 2)
+
+(defun make-backupfile-name (file) (concat "/tmp" (file-name-nondirectory file) "~"))
+
+(load-theme 'solarized-dark t)
+(global-font-lock-mode 1)
+
+(evil-mode 1)
+(global-linum-mode 1)
