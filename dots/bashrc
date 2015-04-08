@@ -1,7 +1,7 @@
 alias bashrc='vim ~/.bashrc && source ~/.bashrc'
 export EDITOR=vim
 
-source ~/.dotfiles/bash/git-completion.bash
+source ~/scripts/git-completion.sh
 
 alias lvi='vim -c "normal '\''0"'
 alias ss=script/server
@@ -89,7 +89,6 @@ On_ICyan="\[\033[0;106m\]"    # Cyan
 On_IWhite="\[\033[0;107m\]"   # White
 
 export CLICOLOR=1
-export LS_COLORS=exfxcxdxbxegedabagacad
 
 # put this in your .bashrc or .profile
 function parse_git_branch {
@@ -143,8 +142,9 @@ function prompt_func() {
   fi
 
   local slash=$'\xE2\x98\x81'
+  local dev=$'✇'
 
-  export PS1="$White\u$Blue@$BPurple\w$Blue $slash $(parse_rvm_gemset) $(parse_git_branch) $IGreen[$Blue$(date "+%Y-%m-%d %H:%M:%S")$IGreen] $jobs $ColorOff\n>> "
+  export PS1="$Red$dev $White\u$Blue@$BPurple\w$Blue $slash $(parse_rvm_gemset) $(parse_git_branch) $IGreen[$Blue$(date "+%Y-%m-%d %H:%M:%S")$IGreen] $jobs $ColorOff\n>> "
 }
 PROMPT_COMMAND=prompt_func
 
@@ -160,7 +160,6 @@ export APP_DIRECT_CREDENTIAL_FILE=~/app_direct_credentials.yml
 export PATH=$PATH:$AWS_CLOUDWATCH_HOME/bin
 
 # This is...probably wrong.
-export JAVA_HOME=$(/usr/libexec/java_home)
 export GNUPGHOME=$HOME/.gnupg
 export JRUBY_OPTS="--1.9 -Xcext.enabled=true"
 
@@ -184,9 +183,6 @@ export AWS_RDS_HOME="/Users/brad/Tools/RDSCli/"
 export RABBITMQ_HOME="/opt/local/lib/rabbitmq/lib/rabbitmq_server-3.0.1"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/:$PKG_CONFIG_PATH"
 export PATH="/usr/local/git/bin:$PATH"
-
-source ~/scripts/jump.sh
-alias j="jump"
 
 alias carl="curl"
 export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled"
