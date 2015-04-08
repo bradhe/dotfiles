@@ -146,10 +146,10 @@ function prompt_func() {
 
   if [ `which yum` != "" ];
   then
-    prefix=$'\xE2\x98\xA0 '
+    prefix=$'\xE2\x80\xBC\xEF\xB8\x8F '
   fi
 
-  export PS1="$Red$prefix$White\u$Blue@$BPurple\w$Blue $slash $(parse_rvm_gemset) $(parse_git_branch) $IGreen[$Blue$(date "+%Y-%m-%d %H:%M:%S")$IGreen] $jobs $ColorOff\n>> "
+  export PS1="$prefix$White\u$Blue@$BPurple\w$Blue $slash $(parse_rvm_gemset) $(parse_git_branch) $IGreen[$Blue$(date "+%Y-%m-%d %H:%M:%S")$IGreen] $jobs $ColorOff\n>> "
 }
 PROMPT_COMMAND=prompt_func
 
