@@ -46,4 +46,8 @@ export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 export LC_ALL=
 
-export PATH="$PATH:/Users/brad/Downloads/adt-bundle-mac-x86_64-20140321/sdk/tools:/Users/brad/Downloads/adt-bundle-mac-x86_64-20140321/sdk/platform-tools:/usr/local/packer"
+export PATH="/usr/local/packer:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="/usr/local/ant/bin:$PATH"
+
+source ~/.envrc

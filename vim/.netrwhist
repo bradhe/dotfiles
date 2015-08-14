@@ -1,7 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/brad/Development/reflect-io-js/src'
-let g:netrw_dirhist_2='/Users/brad/Development/golang/src/github.com/bradhe/apollo/proto'
-let g:netrw_dirhist_3='/Users/brad/Development/golang/src/github.com/bradhe/apollo-frontend/web'
-let g:netrw_dirhist_4='/Users/brad/Development/apollo-app/_includes'
-let g:netrw_dirhist_5='/Users/brad/Development/apollo-app/_assets/stylesheets'
+let g:netrw_dirhist_cnt =0

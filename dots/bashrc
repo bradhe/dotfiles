@@ -178,11 +178,11 @@ export PATH=$PATH:/opt/local/lib/postgresql92/bin/
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/MacOS/bin/:/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin/:/opt/local/bin:/opt/local/sbin:$PATH"
 
 export GEMFURY_USER='cloudabilityadminfurious'
 export PATH="/Users/brad/.sm/bin:/Users/brad/.sm/pkg/active/bin:/opt/scala/bin:/Users/brad/Tools/RDSCli/bin:/Users/brad/bin/play-2.2.0:$PATH"
-export PATH="/Users/brad/.sm/bin:/Users/brad/.sm/pkg/active/bin:/opt/scala/bin:/Users/brad/Tools/RDSCli/bin:/Users/brad/bin/play-2.2.0:/Users/brad/bin/apache-maven-3.1.1/bin:$PATH"
+export PATH="/usr/local/apache-maven/bin:$PATH"
 export AWS_RDS_HOME="/Users/brad/Tools/RDSCli/"
 
 export RABBITMQ_HOME="/opt/local/lib/rabbitmq/lib/rabbitmq_server-3.0.1"

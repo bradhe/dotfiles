@@ -46,12 +46,11 @@ if bufname("%") =~ ".go$"
 end
 
 if bufname("%") =~ "Makefile"
-  set tabstop=2 softtabstop=8 shiftwidth=8 noexpandtab
-  set nolist
+  set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 end
 
 if bufname("%") =~ ".py"
-  set tabstop=2 softtabstop=8 shiftwidth=2 noexpandtab
+  set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 end
 
 noremap Q @q
