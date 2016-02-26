@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+#
+# Given a file (passed in here) and a line number, find and run the test
+# associated with it.
+#
+FILE, LINE = ARGV[0].split(":")
+REGEXP = /^\s*func\s+(?<name>Test[^\(]+)\(/i
+
+def get_test_name!(file, linenum)
+  linenum = linenum.to_i
+  lines = File.read(FILE).split("\n")
+
+  loop do
+    break if linenum < 1
+
+    if match = lines[linenum].match(REGEXP)
+      return match[:name]
+    end
+
+    # Didn't find it so let's keep moving backwards.
+    linenum -= 1
+  end
+end
+
+if test = get_test_name!(FILE, LINE)
+  exec("go test -v -test.run #{test}")
+else
+  exec("go test -v")
+end

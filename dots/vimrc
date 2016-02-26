@@ -66,6 +66,8 @@ function! BDD(args)
     call RunSpec(a:args)
   elseif bufname("%") =~ "spec.js"
     call RunJavascriptSpec(a:args)
+  elseif bufname("%") =~ "_test.go"
+    call RunGoTest(a:args)
   else
     echo "Don't know how to BDD this file"
   end
@@ -116,6 +118,11 @@ endfunction
 
 function! RunSBTTest()
   execute ":! java -jar ~/sbt-launcher-0.5.5.jar test"
+endfunction
+
+function! RunGoTest(args)
+  let cmd = ":! run-local-go-test %" . a:args
+  execute cmd
 endfunction
 
 function Bar(type, msg)
