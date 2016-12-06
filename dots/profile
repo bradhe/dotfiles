@@ -45,8 +45,6 @@ export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 export LC_ALL=
 
-export PATH="/usr/local/packer:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
-export PATH="/usr/local/ant/bin:$PATH"
+export GOROOT_BOOTSTRAP="/usr/local/go-1.5.1"
 
-source ~/.envrc
+export PATH="$PATH:/Users/brad/Development/depot_tools"

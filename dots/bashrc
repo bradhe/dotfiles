@@ -89,6 +89,7 @@ On_ICyan="\[\033[0;106m\]"    # Cyan
 On_IWhite="\[\033[0;107m\]"   # White
 
 export CLICOLOR=1
+export LS_COLORS=exfxcxdxbxegedabagacad
 
 # put this in your .bashrc or .profile
 function parse_git_branch {
@@ -112,13 +113,13 @@ function parse_git_branch {
     # add an else if or two here if you want to get more specific
     if [[ ${git_status} =~ ${remote_pattern} ]]; then
       if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-        remote="${Yellow}↑"
+        remote="${Yellow}\xe2\xac\x86"
       elif [[ ${BASH_REMATCH[1]} == "behind" ]]; then
-        remote="${Yellow}↓"
+        remote="${Yellow}\xe2\xac\x87"
       fi
     fi
     if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-      remote="${Yellow}↕"
+      remote="${Yellow}↕️"
     fi
     echo "$IGreen[${Yellow}${branch}${remote}${state}$IGreen]"
   elif [[ ${git_status} =~ ${detached_pattern} ]]; then
@@ -141,15 +142,7 @@ function prompt_func() {
     jobs="[$count]"
   fi
 
-  local slash=$'\xE2\x98\x81'
-  local prefix=""
-
-  if [ `which yum` != "" ];
-  then
-    prefix=$'\xE2\x80\xBC\xEF\xB8\x8F '
-  fi
-
-  export PS1="$prefix$White\u$Blue@$BPurple\w$Blue $slash $(parse_rvm_gemset) $(parse_git_branch) $IGreen[$Blue$(date "+%Y-%m-%d %H:%M:%S")$IGreen] $jobs $ColorOff\n>> "
+  export PS1="$White\u$Blue@$BPurple\w$Blue $slash $(parse_rvm_gemset) $(parse_git_branch) $IGreen[$Blue$(date "+%Y-%m-%d %H:%M:%S")$IGreen] $jobs $ColorOff\n>> "
 }
 PROMPT_COMMAND=prompt_func
 
@@ -159,35 +152,21 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/scripts/ # Scripts too!
 PATH=$PATH:/usr/local/mysql/bin/ # MySQL stuff...
 
-export AWS_CLOUDWATCH_HOME=~/Tools/CloudWatch-1.0.13.4/
-export AWS_CREDENTIAL_FILE=~/credentials.txt
-export APP_DIRECT_CREDENTIAL_FILE=~/app_direct_credentials.yml
-export PATH=$PATH:$AWS_CLOUDWATCH_HOME/bin
-
 # This is...probably wrong.
+export JAVA_HOME=$(/usr/libexec/java_home)
 export GNUPGHOME=$HOME/.gnupg
-export JRUBY_OPTS="--1.9 -Xcext.enabled=true"
-
-alias checkjs='find . -name '\''*.js'\'' -exec ~/scripts/checkForJsErrors.sh {} \;'
-
-export EC2_HOME=$HOME/Documents/ec2
-export PATH=$PATH:$EC2_HOME/bin
-
-# Stuff for PostegreSQL
-export PATH=$PATH:/opt/local/lib/postgresql92/bin/
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin/:/opt/local/bin:/opt/local/sbin:$PATH"
-
-export GEMFURY_USER='cloudabilityadminfurious'
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin/:/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH="/Users/brad/.sm/bin:/Users/brad/.sm/pkg/active/bin:/opt/scala/bin:/Users/brad/Tools/RDSCli/bin:/Users/brad/bin/play-2.2.0:$PATH"
-export PATH="/usr/local/apache-maven/bin:$PATH"
-export AWS_RDS_HOME="/Users/brad/Tools/RDSCli/"
+export PATH="/Users/brad/.sm/bin:/Users/brad/.sm/pkg/active/bin:/opt/scala/bin:/Users/brad/Tools/RDSCli/bin:/Users/brad/bin/play-2.2.0:/Users/brad/bin/apache-maven-3.1.1/bin:$PATH"
 
-export RABBITMQ_HOME="/opt/local/lib/rabbitmq/lib/rabbitmq_server-3.0.1"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/:$PKG_CONFIG_PATH"
 export PATH="/usr/local/git/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 
-alias carl="curl"
 export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled"
+
+export GOROOT=/usr/local/go
+alias got="go test -c && gdb *.test -d $GOROOT"

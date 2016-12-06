@@ -15,3 +15,5 @@
   up = !git stash && git pull --rebase origin master && git stash pop
 [github]
   user = bradhe
+[url "git@github.com:"]
+  insteadOf = https://github.com/
