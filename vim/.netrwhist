@@ -1,2 +1,4 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/brad/Development/Game1/Game1/Content/Shaders'
+let g:netrw_dirhist_2='/Users/brad/Development/golang/src/github.com/bradhe/backup-service/cmd/backup'

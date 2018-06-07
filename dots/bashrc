@@ -93,6 +93,11 @@ export LS_COLORS=exfxcxdxbxegedabagacad
 
 # put this in your .bashrc or .profile
 function parse_git_branch {
+  if [[ "${DISABLE_GIT_BRANCH}" -ne "" ]];
+  then
+    return
+  fi
+
   git rev-parse --git-dir &> /dev/null
   git_status="$(git status 2> /dev/null)"
   branch_pattern="^#?\s*On branch ([^${IFS}]*)"

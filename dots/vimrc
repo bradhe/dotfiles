@@ -45,6 +45,21 @@ if bufname("%") =~ ".go$"
   set nolist
 end
 
+if bufname("%") =~ ".c$"
+  set tabstop=2 softtabstop=8 shiftwidth=2 noexpandtab
+  set nolist
+end
+
+if bufname("%") =~ ".cpp$"
+  set tabstop=2 softtabstop=8 shiftwidth=2 noexpandtab
+  set nolist
+end
+
+if bufname("%") =~ ".h$"
+  set tabstop=2 softtabstop=8 shiftwidth=2 noexpandtab
+  set nolist
+end
+
 if bufname("%") =~ "Makefile"
   set tabstop=2 softtabstop=8 shiftwidth=8 noexpandtab
   set nolist

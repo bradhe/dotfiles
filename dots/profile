@@ -48,3 +48,5 @@ export LC_ALL=
 export GOROOT_BOOTSTRAP="/usr/local/go-1.5.1"
 
 export PATH="$PATH:/Users/brad/Development/depot_tools"
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin"
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin"
