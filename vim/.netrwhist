@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/brad/Development/Game1/Game1/Content/Shaders'
-let g:netrw_dirhist_2='/Users/brad/Development/golang/src/github.com/bradhe/backup-service/cmd/backup'
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/bheller/Development/one-on-one/one-on-one-app/src/pages/Settings'
+let g:netrw_dirhist_9='/Users/bheller/Development/one-on-one/one-on-one-api/pkg/storage/sql/sqltest'
+let g:netrw_dirhist_8='/Users/bheller/Development/one-on-one/one-on-one-api/pkg/server'
+let g:netrw_dirhist_7='/Users/bheller/Development/one-on-one/one-on-one-api/db'
+let g:netrw_dirhist_6='/Users/bheller/Development/one-on-one/one-on-one-api/pkg/storage/managers'
+let g:netrw_dirhist_5='/Users/bheller/Development/one-on-one/talktutor-api/pkg/storage/sql/migrations'
+let g:netrw_dirhist_4='/tmp'
+let g:netrw_dirhist_3='/Users/bheller/Development/eqnew/eqnew-server/pkg/importer/obj'
+let g:netrw_dirhist_2='/Users/bheller/Development/eqnew/.git/hooks'
+let g:netrw_dirhist_1='/Users/bheller/Development/eqnew/.git'

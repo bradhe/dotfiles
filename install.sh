@@ -65,14 +65,7 @@ done
 for f in `ls ./dots`;
 do
   echo "Installing .$f"
-  cp ./dots/$f $HOME/.$f
+  cp -r ./dots/$f $HOME/.$f
 done
-
-# Install Git Gui
-(cd git/gui/ && make)
-
-install_file git/gui/git-gui ~/scripts/
-#install_directory git/gui /usr/share/git-gui
-#chmod 755 ~/scripts/git-gui
 
 source ~/.bashrc

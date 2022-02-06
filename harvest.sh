@@ -9,6 +9,7 @@
 #
 cp $HOME/.vimrc dots/vimrc
 cp $HOME/.bashrc dots/bashrc
+cp $HOME/.zshrc dots/zshrc
 cp $HOME/.profile dots/profile
 cp $HOME/.emacs dots/emacs
 cp $HOME/.gitconfig dots/gitconfig
@@ -19,6 +20,12 @@ cp $HOME/.gitignore_global dots/gitignore_global
 #
 cp -r $HOME/.vim/ vim
 cp -r $HOME/.emacs.d/ emacs
+
+mkdir -p dots/config
+cp -r $HOME/.config/nvim/ dots/config/nvim
+
+# We don't carry around the stuff installed by vim-plugged.
+rm -rf dots/config/nvim/plugged
 
 #
 # Now we'll nuke .git directories, since we don't need 'em any more.

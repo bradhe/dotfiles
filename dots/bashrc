@@ -175,3 +175,4 @@ export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled"
 
 export GOROOT=/usr/local/go
 alias got="go test -c && gdb *.test -d $GOROOT"
+. "$HOME/.cargo/env"
