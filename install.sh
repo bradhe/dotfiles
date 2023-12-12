@@ -35,11 +35,11 @@ install_file() {
 # Get the latest submodules.
 git submodule update --init
 
-if [ ! -d ~/.vim ]; then
-  mkdir -p ~/.vim/plugins
+if [ ! -d ~/.config/nvim ]; then
+  mkdir -p ~/.config/nvim
 fi
 
-install_directory ./vim ~/.vim
+install_directory ./nvim ~/.config/nvim
 install_directory ./scripts ~/scripts
 
 #
