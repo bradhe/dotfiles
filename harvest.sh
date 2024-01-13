@@ -18,7 +18,6 @@ cp $HOME/.gitignore_global dots/gitignore_global
 #
 # VIM and Emacs crap
 #
-cp -r $HOME/.vim/ vim
 cp -r $HOME/.emacs.d/ emacs
 
 mkdir -p dots/config
@@ -26,6 +25,8 @@ cp -r $HOME/.config/nvim/ dots/config/nvim
 
 # We don't carry around the stuff installed by vim-plugged.
 rm -rf dots/config/nvim/plugged
+rm -rf dots/config/nvim/plugin
+rm -rf dots/config/nvim/undodir
 
 #
 # Now we'll nuke .git directories, since we don't need 'em any more.

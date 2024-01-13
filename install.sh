@@ -41,6 +41,7 @@ fi
 
 install_directory ./nvim ~/.config/nvim
 install_directory ./scripts ~/scripts
+install_directory ./dots/config ~/.config
 
 #
 # Install all the emacs modes.

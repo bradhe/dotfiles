@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/bheller/.oh-my-zsh"
+export ZSH="/Users/brad/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -104,8 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # CUSTOMIZATIONS
 # ----------------
 #
-source $HOME/.awscredentials
-source $HOME/.jenkinstoken
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -116,11 +114,11 @@ export GOPATH="$HOME/Development/golang"
 export PATH="$PATH:/usr/local/node/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/usr/local/protoc/bin"
-export PATH="$PATH:$HOME/Development/golang/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/local/nvim/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/14/bin/"
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/13/bin/"
 
 alias vi=nvim
 alias vim=nvim
