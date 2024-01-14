@@ -67,32 +67,6 @@ return require("packer").startup {
       config = function() require("Comment").setup() end,
     }
 
-    -- use "elihunter173/dirbuf.nvim"
-    -- doing mkdir locally
-    -- use "pbrisbin/vim-mkdir"
-    -- use "vim-test/vim-test"
-
-    -- mongo-nvim - install when needed. Fairly buggy as of 05-May-2022. Great potential.
-    -- @TODOUA: Make this an opt plugin
-    -- @TODOUA: Setup command maps: https://github.com/thibthib18/mongo-nvim#%EF%B8%8F--config
-    -- @TODOUA: Setup proper list_document_key table: https://github.com/thibthib18/mongo-nvim#list_document_key
-    -- @TODOUA: Setup making connection_string env var
-    -- use {
-    --   "thibthib18/mongo-nvim",
-    --   rocks = { "lua-mongo" },
-    --   config = function()
-    --     require("mongo-nvim").setup {
-    --       -- connection string to your mongodb
-    --       connection_string = "mongodb://127.0.0.1:27017",
-    --       -- key to use for previewing/picking documents
-    --       -- either a string or custom table of string or functions
-    --       list_document_key = "_id",
-    --       -- delete selected document in document_picker
-    --       delete_document_mapping = nil, -- "<c-d>"
-    --     }
-    --   end,
-    -- }
-
     use {
       "klen/nvim-test",
       config = function()

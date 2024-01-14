@@ -4,11 +4,11 @@
 -- Plugins --
 require "bradhe.plugins"
 
--- Config/Setup --
-require "bradhe.config"
-
 -- Settings(options)
 require "bradhe.settings"
 
 -- Globals like P() & DN()
 require "bradhe.globals"
+
+-- Config/Setup --
+require "bradhe.config"

@@ -61,7 +61,6 @@ require("lualine").setup {
     lualine_y = {
       { current_buffer_number, color = { fg = "#A9A9A9" } },
       { current_working_dir, color = { fg = "#A9A9A9" } },
-      -- { current_date, color = { fg = "#A9A9A9" } },
     },
     lualine_z = { { "location", color = { fg = "#6d7275", bg = "#131313" } } },
   },
