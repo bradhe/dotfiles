@@ -1,6 +1,5 @@
 [user]
   name = Brad Heller
-  email = brad.heller@gmail.com
 [rerere]
   enabled = 1
 [core]
@@ -15,5 +14,5 @@
   up = !git stash && git pull --rebase origin master && git stash pop
 [github]
   user = bradhe
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+[commit]
+	gpgsign = true

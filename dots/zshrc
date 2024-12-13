@@ -110,15 +110,27 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 export GOPATH="$HOME/Development/golang"
+export GOBIN="$GOPATH/bin"
 
+# NOTE: This is relevant for Python-related stuff so that we pick up the
+# correct version first.
+export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:/usr/local/node/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/usr/local/protoc/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
-export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/local/nvim/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/13/bin/"
+export PATH="$HOME/.moon/bin:$PATH"
 
 alias vi=nvim
 alias vim=nvim
+alias aws="awsv2"
+
+# Helps configure local pinentry stuff
+export GPG_TTY=$(tty)
+
+# proto
+export PROTO_HOME="$HOME/.proto";
+export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH";

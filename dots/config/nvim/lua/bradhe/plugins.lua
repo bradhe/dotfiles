@@ -189,6 +189,8 @@ return require("packer").startup {
     use "whatsthatsmell/codesmell_dark.vim"
 
     use { "Pocco81/HighStr.nvim", cmd = "HSHighlight" }
+
+		use { 'github/copilot.vim' }
     -- Also tried bluloco
     -- use "folke/tokyonight.nvim"
     -- copilot 😱

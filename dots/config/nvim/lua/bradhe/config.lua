@@ -23,34 +23,11 @@ lspconfig.lua_ls.setup {
 -- @TODOUA: https://github.com/lewis6991/gitsigns.nvim/commit/e272fcfc99003caada48bbcea7a6f95966799ceb
 require("gitsigns").setup {
   signs = {
-    add = {
-      hl = "DiffAdd",
-      text = "│",
-      numhl = "GitSignsAddNr",
-    },
-    change = {
-      hl = "DiffChange",
-      text = "",
-      numhl = "GitSignsChangeNr",
-    },
-    delete = {
-      hl = "DiffDelete",
-      text = "_",
-      show_count = true,
-      numhl = "GitSignsDeleteNr",
-    },
-    topdelete = {
-      hl = "DiffDelete",
-      text = "‾",
-      show_count = true,
-      numhl = "GitSignsDeleteNr",
-    },
-    changedelete = {
-      hl = "DiffChange",
-      text = "~",
-      show_count = true,
-      numhl = "GitSignsChangeNr",
-    },
+    add = { text = "│", },
+    change = { text = "", },
+    delete = { text = "_", },
+    topdelete = { text = "‾", },
+    changedelete = { text = "~", },
   },
   count_chars = {
     [1] = "",
@@ -427,13 +404,12 @@ local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
-    require('go.format').goimport()
+    require('go.format').goimports()
   end,
   group = format_sync_grp,
 })
 
 require('go').setup({
-	goimport = 'gopls',
 	gofmt = 'gopls',
 	lsp_cfg = true, -- false: use your own lspconfig
   lsp_gofumpt = true, -- true: set default gofmt in gopls format to gofumpt
@@ -444,3 +420,10 @@ require('go').setup({
 	-- verbose = true,
 	-- log_path = "/tmp/go.nvim.log",
 })
+
+-- custom telescope configuration for the builtin
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
