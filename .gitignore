@@ -1,3 +1,4 @@
 *~
 *.swp
 vim/bundle/*
+.DS_Store
